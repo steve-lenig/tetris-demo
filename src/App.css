@@ -1,0 +1,366 @@
+:root {
+  /* Bichromatic color scheme - purple and yellow-green */
+  --primary-color: #6A0DAD;
+  --secondary-color: #C1FF72;
+  --primary-dark: #4A0080;
+  --secondary-dark: #9ACC58;
+  --background-color: #121212;
+  --text-color: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+/* Entry Screen Styles */
+.entry-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+  animation: pulsate 5s infinite alternate;
+}
+
+.game-title {
+  font-size: 6rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+  margin-bottom: 2rem;
+  letter-spacing: 5px;
+}
+
+.start-prompt {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  transition: opacity 0.3s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@keyframes pulsate {
+  0% {
+    background-color: rgba(106, 13, 173, 0.05);
+  }
+  100% {
+    background-color: rgba(193, 255, 114, 0.05);
+  }
+}
+
+/* Entry Screen Menu Buttons */
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tetris-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tetris-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.play-button {
+  background-color: var(--secondary-color);
+  color: #000;
+}
+
+.play-button:hover {
+  background-color: var(--secondary-dark);
+}
+
+.back-button {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  min-width: 150px;
+}
+
+/* Tetris Game Styles */
+.tetris-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.game-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+/* Game Over Styles */
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.game-over h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px var(--secondary-color);
+}
+
+.final-score {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.game-over-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.game-over button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.game-over button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* High Scores Styles */
+.high-scores {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.high-scores h3 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.scores-list {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: rgba(106, 13, 173, 0.2);
+}
+
+.high-score-item {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr;
+  gap: 10px;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  text-align: left;
+}
+
+.high-score-item:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.high-score {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* High Scores Page Styles */
+.high-scores-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.high-scores-header {
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.high-scores-chart {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid var(--primary-color);
+}
+
+.high-scores-list {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.high-scores-actions {
+  margin-top: 1rem;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--secondary-color);
+}
+
+/* Board Styles */
+.board {
+  display: inline-grid;
+  grid-template-rows: repeat(20, 25px);
+  grid-gap: 1px;
+  border: 2px solid var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(10, 25px);
+  grid-gap: 1px;
+}
+
+/* Cell Styles */
+.cell {
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+}
+
+.cell.empty {
+  background-color: rgba(106, 13, 173, 0.2);
+}
+
+.cell.filled {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-dark);
+  box-shadow: 0 0 5px var(--secondary-color);
+}
